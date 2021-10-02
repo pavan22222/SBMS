@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Dependent Classes Configuration -->
+	<bean id="aspaint" class="com.vrnda.comp.AsianPaints"/>
+	<bean id="berpaint" class="com.vrnda.comp.BergerPaints"/>
+	<bean id="bripaint" class="com.vrnda.comp.BritishPaints"/>
+	
+	<!-- Target Class Configuration -->
+	<bean id="house" class="com.vrnda.comp.House">
+		<property name="paint" ref="berpaint"></property>
+	</bean>
+	
+</beans>
