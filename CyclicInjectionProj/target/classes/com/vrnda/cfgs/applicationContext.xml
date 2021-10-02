@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="tv" class="com.vrnda.beans.TV">
+	<property name="remote" ref="remote"></property>
+</bean>
+
+<bean id="remote" class="com.vrnda.beans.Remote">
+	<constructor-arg name="tv" ref="tv"/>
+</bean>
+</beans>
