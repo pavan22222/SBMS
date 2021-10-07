@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="dmds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+	<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"></property>
+	<property name="username" value="System"></property>
+	<property name="password" value="Pavan"></property>
+	
+</bean>
+
+<bean id="dao" class="com.vrnda.dao.CustmerRepositoryImpl">
+	<constructor-arg name="ds" ref="dmds"></constructor-arg>
+</bean>
+<bean id="service" class="com.vrnda.service.CustmerServiceImpl">
+	<constructor-arg name="repository" ref="dao"></constructor-arg>
+</bean>
+
+<bean id="controller" class="com.vrnda.controller.CustmerController">
+	<constructor-arg name="service" ref="service"></constructor-arg>
+</bean>
+</beans>
