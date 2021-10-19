@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Configuring a Java Class as Spring Bean with singleton Scope -->
+<!--  ><bean id="com" class="com.vrnda.beans.Company" scope="singleton"></bean> -->
+
+<!-- Configuring a Java Class as Spring Bean with prototype Scope -->
+<bean id="com" class="com.vrnda.beans.Company" scope="prototype" factory-method="getInstance"></bean>
+
+<!-- Configuring a Java Class as Spring Bean with request Scope -->
+<bean id="com1" class="com.vrnda.beans.Company" scope="request" ></bean>
+
+<!-- Configuring a Java Class as Spring Bean with session Scope -->
+<bean id="com2" class="com.vrnda.beans.Company" scope="session" ></bean>
+
+<!-- Configuring a Java Class as Spring Bean with application Scope -->
+<bean id="com3" class="com.vrnda.beans.Company" scope="application" ></bean>
+</beans>
