@@ -6,7 +6,17 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 
-	<bean id="doj" class="java.util.Date"></bean>
+	<bean id="doj" class="java.util.Date" >
+		<property name="year" value="120"></property>
+	</bean>
+	<bean id="dateOfJoining" class="java.util.Date">
+	<property name="year" value="140"></property>
+	</bean>
+	<bean id="doj1" class="java.util.Date" primary="true">
+		<property name="year" value="130"></property>
+	</bean>
+	
+
 
 	<bean id="st" class="com.vrnda.beans.Student"></bean>
 	<!-- <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean> -->

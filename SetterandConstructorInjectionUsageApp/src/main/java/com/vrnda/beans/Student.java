@@ -17,10 +17,14 @@ public class Student {
 	private String name;
 	@NonNull
 	private Float fee;
-	@Setter
 	private String addr;
 	@Setter
 	private Integer standard;
+	
+	public void setAddress(String address) {
+		System.out.println("Student.setAddress()");
+		this.addr=address;
+	}
 	
 	
 	

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="regOf" class="com.vrnda.beans.RegistrationOffice" >
+	<property name="name" value="Pavan Janapati"></property>
+	<property name="addrs" value="Hyd"></property>
+	<property name="drivingLicense" value="12233344"></property>
+</bean>
+</beans>
