@@ -7,7 +7,7 @@
 
 <context:property-placeholder location="com/vrnda/commons/application.properties"/>
 
-<bean id="laptop" class="com.vrnda.beans.Laptop" >
+<bean id="laptop" class="com.vrnda.beans.Laptop">
 	<property name="version" value="${version}"></property>
 	<property name="companyName" value="${companyName}"></property>
 </bean>
