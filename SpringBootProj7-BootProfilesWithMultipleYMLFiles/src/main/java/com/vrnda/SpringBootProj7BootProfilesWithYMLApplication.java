@@ -13,7 +13,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.vrnda.controller.EmployeeController;
 
 @SpringBootApplication
-public class SpringBootProj6WorkingWithProfilesApplication {
+public class SpringBootProj7BootProfilesWithYMLApplication {
 	
 	@Bean
 	@Profile("uat")
@@ -27,11 +27,7 @@ public class SpringBootProj6WorkingWithProfilesApplication {
 		return cpds;
 	}
 	public static void main(String[] args) {
-		ApplicationContext ctx=SpringApplication.run(SpringBootProj6WorkingWithProfilesApplication.class, args);
-		/* Activating the profiles using java code(programatic approach) */
-//		SpringApplication app=new SpringApplication(SpringBootProj6WorkingWithProfilesApplication.class);
-//		app.setAdditionalProfiles("prod");
-//		ApplicationContext ctx=app.run(args);
+		ApplicationContext ctx=SpringApplication.run(SpringBootProj7BootProfilesWithYMLApplication.class, args);
 		EmployeeController controller=ctx.getBean("employeeController",EmployeeController.class);
 		System.out.println(controller.getEmployees());
 	}

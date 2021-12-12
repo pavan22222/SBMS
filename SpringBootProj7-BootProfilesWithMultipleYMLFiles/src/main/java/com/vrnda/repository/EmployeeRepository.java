@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.vrnda.dto.Employee;
 
 @Repository
-@Profile(value={"default"})
+//@Profile(value={"default"})
 public class EmployeeRepository {
 	private final String SELECT_QUERY="SELECT * FROM EMPLOYEE"; 
 	

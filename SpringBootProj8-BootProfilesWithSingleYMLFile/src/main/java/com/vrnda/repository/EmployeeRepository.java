@@ -9,13 +9,14 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import com.vrnda.dto.Employee;
 
 @Repository
-@Profile(value={"default"})
+//@Profile({"prod"})
 public class EmployeeRepository {
 	private final String SELECT_QUERY="SELECT * FROM EMPLOYEE"; 
 	
