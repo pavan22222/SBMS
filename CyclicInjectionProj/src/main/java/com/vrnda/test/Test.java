@@ -12,10 +12,9 @@ public class Test {
 		DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
 		XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
 		reader.loadBeanDefinitions("com/vrnda/cfgs/applicationContext.xml");
-		TV tv = factory.getBean("tv", TV.class);
-		System.out.println(tv);
-		/* Remote remote=factory.getBean("remote", Remote.class);
-		 * System.out.println(remote); */
+		/* TV tv = factory.getBean("tv", TV.class); System.out.println(tv); */
+		Remote remote = factory.getBean("remote", Remote.class);
+		System.out.println(remote);
 	}
 
 }

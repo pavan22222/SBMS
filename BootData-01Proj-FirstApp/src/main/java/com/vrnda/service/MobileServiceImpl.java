@@ -25,8 +25,8 @@ public class MobileServiceImpl implements MobileService {
 
 	@Override
 	public Mobile getMobileById(Long id) {
-		Optional<Mobile> opt=repository.findById(id);
-		return opt.isPresent()?opt.get():null;
+		return repository.findById(id).orElse(new Mobile());
+		//return opt.isPresent()?opt.get():null;
 	}
 
 	@Override
@@ -63,6 +63,77 @@ public class MobileServiceImpl implements MobileService {
 			iterable.forEach(mobile->listofIdentities.add(mobile.getImeNo()));
 		}
 		return listofIdentities.toString();
+	}
+
+	@Override
+	public String updateMobileById(Long imeNo, String companyName, Float price) {
+		if(repository.existsById(imeNo)) {
+			Mobile mobile=new Mobile();
+			mobile.setImeNo(imeNo);
+			mobile.setCompanyName(companyName);
+			mobile.setPrice(price);
+			return repository.save(mobile).getImeNo()+" Record is Updated";
+		}
+		
+		return "Invalid IME No";
+	}
+
+	@Override
+	public String updateMobileByObject(Mobile mobile) {
+		if(repository.existsById(mobile.getImeNo())) {
+			return repository.save(mobile).getImeNo() +" is Updated";
+		}
+		return "Object Not Found to Update";
+	}
+
+	@Override
+	public String deleteById(Long imeNo) {
+		if(repository.findById(imeNo).isPresent()) {
+			repository.deleteById(imeNo);
+			return imeNo+ " Record is Deleted";
+		}
+		return "Invalid Id";
+	}
+
+	@Override
+	public String deleteByObject(Mobile mobile) {
+		if(repository.findById(mobile.getImeNo()).isPresent()) {
+			repository.delete(mobile);
+			return mobile.getImeNo()+ " Record is Deleted";
+		}
+		return "Invalid Object";
+	}
+	
+	@Override
+	public String delete(Mobile mobile) {
+		repository.delete(mobile);
+		return mobile.getImeNo() + " Record is Deleted";
+	}
+
+	@Override
+	public String deleteAllMovies() {
+		repository.deleteAll();
+		return "All Movies were deleted";
+	}
+
+	@Override
+	public String deleteAllByIds(List<Long> ids) {
+		repository.deleteAllById(ids);
+		return ids+" Records are Deleted";
+	}
+
+	@Override
+	public String deleteAllByMovies(List<Mobile> mobiles) {
+		for(Mobile mobile:mobiles) {
+			if(repository.existsById(mobile.getImeNo())) {
+				
+			}else {
+				return "Invaild Id Contains in the Given Mobiles";
+			}
+		}	
+		repository.deleteAll(mobiles);
+		mobiles.forEach(mobile->System.out.print(mobile.getImeNo()));
+		return " Records are Deleted";
 	}
 
 }

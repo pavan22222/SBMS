@@ -49,7 +49,33 @@ public class MyApplicationRunner implements ApplicationRunner{
 	    else
 	    	System.out.println("Record Not FOund"); */
 		//saveAll()
-		System.out.println(service.saveAll(List.of(new Mobile(null, "Oppo","ZSERER", 12000.0f,  LocalDate.now()), new Mobile(null, "Vivo","10s", 18000.0f,  LocalDate.now()))));
+		//System.out.println(service.saveAll(List.of(new Mobile(null, "Oppo","ZSERER", 12000.0f,  LocalDate.now()), new Mobile(null, "Vivo","10s", 18000.0f,  LocalDate.now()))));
+		
+		/** partial update opration by using save method */
+		//System.out.println(service.updateMovieById(191l, "Real me", 13000f));
+		/** full update opration by using save method */
+		//System.out.println(service.updateMobileByObject(new Mobile(111l,"VVO",null,12000f,LocalDate.now())));
+		/** delete opration by using id property */
+		//System.out.println(service.deleteById(76l));
+		/** delete opration by using object */
+		//System.out.println(service.deleteByObject(new Mobile(152l,null,null,null,null)));
+		/** delete opration when we are sure id property is always exists */
+		//System.out.println(service.delete(new Mobile(28l,null,null,null,null)));
+		/** deleteAll Method*/
+		//System.out.println(service.deleteAllMovies());
+		/* deleteAll(Iterable ids) */
+//		try {
+//			System.out.println(service.deleteAllByIds(List.of(2l)));
+//		}catch (NullPointerException e) {
+//			System.out.println("all or some of the ids must not be null");
+//		}
+		/* deleteAll(Iterable<Movies> ids) */
+		try {
+			System.out.println(service.deleteAllByMovies(List.of(new Mobile(1l,null,null,null,null))));
+		}catch (NullPointerException e) {
+			System.out.println("all or some of the ids must not be null");
+		}
+		
 	}
 
 }
