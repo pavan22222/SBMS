@@ -70,12 +70,14 @@ public class MyApplicationRunner implements ApplicationRunner{
 //			System.out.println("all or some of the ids must not be null");
 //		}
 		/* deleteAll(Iterable<Movies> ids) */
-		try {
-			System.out.println(service.deleteAllByMovies(List.of(new Mobile(1l,null,null,null,null))));
-		}catch (NullPointerException e) {
-			System.out.println("all or some of the ids must not be null");
-		}
-		
+//		try {
+//			System.out.println(service.deleteAllByMovies(List.of(new Mobile(1l,null,null,null,null))));
+//		}catch (NullPointerException e) {
+//			System.out.println("all or some of the ids must not be null");
+//		}
+//		
+		List<Mobile> list=service.findAllById(Arrays.asList(2l,null,13l));
+		list.forEach(System.out::println);
 	}
 
 }
